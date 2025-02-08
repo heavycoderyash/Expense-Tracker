@@ -19,7 +19,8 @@ Key features of the project:
 - View total expenses in INR.
 - Visual representation of expenses using ***Charts.js***.
 - Multiple currency support with automatic conversion using ***Exchange Rate API***.
-- Expenses are stored in the browser's local storage.
+- Expenses are stored in the browser's local storage using ***Local Storage API***.
+- New font ****"Acme"**** added using ***Google Font API***.
 
 ---
 
