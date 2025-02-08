@@ -1,0 +1,229 @@
+:root {
+    --primary-color: #6c5ce7;
+    --secondary-color: #a55eea;
+    --bg-dark: #1a1a2e;
+    --card-dark: #16213e;
+    --text-light: #f0f0f0;
+    --text-gray: #a0a0a0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Acme', sans-serif;
+    transition: all 0.3s ease;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.welcome-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeOut 0.5s ease 2.5s forwards;
+}
+
+.welcome-text {
+    font-size: 5em;
+    color: var(--primary-color);
+    animation: welcomeAnimation 2s ease;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes welcomeAnimation {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.main-content {
+    opacity: 0;
+    animation: fadeIn 0.5s ease 3s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: var(--card-dark);
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+h1, h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2.5em;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-light);
+    font-weight: 500;
+    font-size: 1.2em;
+}
+
+.form-group input, 
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid rgba(108, 92, 231, 0.3);
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--text-light);
+    font-size: 1.1em;
+}
+
+.form-group input:focus, 
+.form-group select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
+}
+
+button {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    font-size: 1.1em;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+}
+
+.expense-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    animation: slideIn 0.3s ease;
+    font-size: 1.2em;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.expense-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.delete-btn {
+    background: linear-gradient(45deg, #ff6b6b, #ff4757);
+    padding: 8px 15px;
+    font-size: 1em;
+}
+
+.edit-btn {
+    background: linear-gradient(45deg, #ffdd57, #ff9f43);
+    padding: 8px 15px;
+    font-size: 1em;
+    margin-left: 10px;
+}
+
+.submit-btn {
+    min-width: 150px;
+}
+
+.edit-mode-indicator {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    display: none;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.total-expenses {
+    font-size: 1.6em;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px;
+    background: linear-gradient(45deg, rgba(108, 92, 231, 0.2), rgba(165, 94, 234, 0.2));
+    border-radius: 8px;
+    margin: 10px 0;
+    animation: pulse 2s infinite;
+}
+
+.charts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(108, 92, 231, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(108, 92, 231, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(108, 92, 231, 0);
+    }
+}
