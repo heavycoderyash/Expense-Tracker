@@ -17,8 +17,8 @@ Key features of the project:
 
 - Add, edit, and delete expense items.
 - View total expenses in INR.
-- Visual representation of expenses using **Charts.js**.
-- Multiple currency support with automatic conversion.
+- Visual representation of expenses using ***Charts.js***.
+- Multiple currency support with automatic conversion using ***Exchange Rate API***.
 - Expenses are stored in the browser's local storage.
 
 ---
